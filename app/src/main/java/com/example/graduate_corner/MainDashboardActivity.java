@@ -78,8 +78,8 @@ public class MainDashboardActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser firebaseUser = auth.getCurrentUser();
         if (firebaseUser != null){
-            String userName = firebaseUser.getDisplayName();
-            Toast.makeText(this, "Welcome Back"+userName+"!", Toast.LENGTH_SHORT).show();
+            //String userName = firebaseUser.getEmail();
+            //Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show();
         }else {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
@@ -110,7 +110,13 @@ public class MainDashboardActivity extends AppCompatActivity {
         closeDrawer(drawerLayout);
     }
 
-    public void profile(View view){
+    public void clickDashboard(View view){
+        //Recreate Activity
+        // recreate();
+        redirectActivity(this, MainDashboardActivity.class);
+    }
+
+    public void clickProfile(View view){
         redirectActivity(this, ProfileActivity.class);
     }
 
