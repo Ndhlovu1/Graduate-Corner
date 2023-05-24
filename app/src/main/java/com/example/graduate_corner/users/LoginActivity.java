@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
+                                //Create a Database reference session and redirect the user to the MainDashboard
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child("Namibia").child(auth.getCurrentUser().getUid());
 
                                 ref.addValueEventListener(new ValueEventListener() {
@@ -100,9 +101,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                     }
 
+                                    //Should the user cancel the logging in before it is complete then we can simply dismiss our progress dialog
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
-
                                         pd.dismiss();
 
                                     }
@@ -110,9 +111,10 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
 
+                            //Geneic Mess
                             else {
                                 pd.dismiss();
-                                Toast.makeText(LoginActivity.this, "Error, signing In, Please Check Your connectivity", Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, "Error signing In\n\tSomething Went Wrong!\nPlease Try Again Later.", Toast.LENGTH_LONG).show();
                             }
 
                         }
