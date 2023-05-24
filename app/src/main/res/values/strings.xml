@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Graduate-Corner</string>
+    <string name="name_hint">Last Name and First Name e.g. Daphne Cecil</string>
+    <string name="email_hint">Email Address</string>
+    <string name="your_institution_hint">Your Institution</string>
+    <string name="cellphone_number_hint">Cellphone Number</string>
+    <string name="your_password_hint">Your Password</string>
+    <string name="sign_up_hint">Sign Up</string>
+    <string name="go_to_login_hint">Already have an account? Sign in.</string>
 </resources>
