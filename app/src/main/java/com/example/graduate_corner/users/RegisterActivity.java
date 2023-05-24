@@ -149,7 +149,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             else {
-                Toast.makeText(RegisterActivity.this, "You cannot register with this email.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Something is wrong with this email address.", Toast.LENGTH_SHORT).show();
                 pd.dismiss();
             }
             pd.dismiss();
