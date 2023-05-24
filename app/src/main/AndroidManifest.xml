@@ -13,6 +13,18 @@
         android:theme="@style/Theme.GraduateCorner"
         tools:targetApi="31">
         <activity
+            android:name=".videos.VideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".notes.NotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".skills_building.SkillsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mentors.MentorsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainDashboardActivity"
             android:exported="false" />
         <activity
