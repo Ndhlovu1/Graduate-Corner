@@ -30,7 +30,8 @@
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="#433F3F" />
+        android:textColorHint="#433F3F"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/email"
@@ -44,7 +45,8 @@
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="#433F3F" />
+        android:textColorHint="#433F3F"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/institution"
@@ -58,7 +60,8 @@
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="#433F3F" />
+        android:textColorHint="#433F3F"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/cellphone"
@@ -72,7 +75,8 @@
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="#433F3F" />
+        android:textColorHint="#433F3F"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/password"
@@ -86,7 +90,8 @@
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="#433F3F" />
+        android:textColorHint="#433F3F"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <Button
         android:layout_width="match_parent"
@@ -95,7 +100,8 @@
         android:text="@string/sign_up_hint"
         android:textColor="#FFFFFF"
         android:background="@drawable/button_background"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <TextView
         android:id="@+id/txt_login"
