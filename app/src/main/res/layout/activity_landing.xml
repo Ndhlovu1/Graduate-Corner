@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:textColor="#fff"
+        android:textColor="@color/black_two"
         android:background="@drawable/button_background"
         android:text="SIGN IN" />
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:text="REGISTER"
-        android:textColor="#fff"
+        android:textColor="@color/black_two"
         android:background="@drawable/button_background"
         />
 
