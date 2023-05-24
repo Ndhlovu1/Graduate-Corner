@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
 
-                            //Geneic Mess
+                            //Generic Message
                             else {
                                 pd.dismiss();
                                 Toast.makeText(LoginActivity.this, "Error signing In\n\tSomething Went Wrong!\nPlease Try Again Later.", Toast.LENGTH_LONG).show();
