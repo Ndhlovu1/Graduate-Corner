@@ -133,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
                 hashMap.put("Cellphone",str_cellphone);
                 hashMap.put("Password", str_password);
 
-
+                //Use your Database Reference to now push the new user details into the database
                 ref.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
