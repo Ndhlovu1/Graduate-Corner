@@ -11,4 +11,8 @@
     <string name="enter_your_password_hint">Enter your password</string>
     <string name="login_btn_hint">LOGIN</string>
     <string name="go_to_reg_hint">Do not have an account? Register</string>
+    <string name="notes_string">Notes</string>
+    <string name="skills_building_string">Skills Building</string>
+    <string name="mentor_string">Mentors</string>
+    <string name="usefull_videos">Videos</string>
 </resources>
