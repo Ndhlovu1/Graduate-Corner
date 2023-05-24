@@ -23,8 +23,11 @@ public class MainDashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_dashboard);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
+        mainGrid = (GridLayout)findViewById(R.id.main_grid_Dash);
+        setSingleEvent(mainGrid);
 
-
+        drawerLayout = findViewById(R.id.drawerlayout);
+        auth = FirebaseAuth.getInstance();
 
     }
 }
