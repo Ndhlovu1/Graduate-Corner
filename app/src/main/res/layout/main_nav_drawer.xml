@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:minHeight="48dp"
-        android:onClick="clickMainDash"
+        android:onClick="clickDashboard"
         android:orientation="horizontal">
 
         <ImageView
@@ -63,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:minHeight="48dp"
+        android:onClick="clickProfile"
         android:orientation="horizontal">
 
         <ImageView
