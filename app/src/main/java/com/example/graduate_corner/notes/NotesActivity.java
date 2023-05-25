@@ -85,11 +85,22 @@ public class NotesActivity extends AppCompatActivity {
                 notes.clear();
                 //Recall all items
                 notes.addAll(database.notesDAO().getAll());
-                //Update adapter on i
+                //Update adapter on added Notes
                 notesListAdapter.notifyDataSetChanged();
 
 
             }
+        } else if (requestCode==102) {
+            if (resultCode == Activity.RESULT_OK){
+                Notes new_notes = (Notes) data.getSerializableExtra("note");
+                database.notesDAO().update(new_notes.getID(), new_notes.getTitle(), new_notes.getNotes());
+
+                notes.clear();
+                notes.addAll(database.notesDAO().getAll());
+                notesListAdapter.notifyDataSetChanged();
+
+            }
+
         }
 
     }
@@ -106,7 +117,9 @@ public class NotesActivity extends AppCompatActivity {
     private final NotesClickListener notesClickListener = new NotesClickListener() {
         @Override
         public void onClick(Notes notes) {
-
+            Intent intent = new Intent(NotesActivity.this, NotesAddActivity.class);
+            intent.putExtra("old_note",notes);
+            startActivityForResult(intent, 102);
         }
 
         @Override
