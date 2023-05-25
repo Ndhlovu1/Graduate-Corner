@@ -20,6 +20,7 @@
             android:layout_height="108dp"
             android:layout_gravity="center"
             android:src="@drawable/logo2"
+
             />
 
         <TextView
@@ -28,7 +29,7 @@
             android:text="My Profile"
             android:textSize="20dp"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black_two"
             android:gravity="center_horizontal"/>
 
         <View
@@ -36,7 +37,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:background="#A60A13"
+            android:background="@color/red"
             />
 
         <LinearLayout
@@ -63,6 +64,8 @@
                 android:layout_height="wrap_content"
                 android:text="Loading ..."
                 android:paddingRight="20dp"
+                android:textStyle="normal"
+                android:textSize="16sp"
                 android:textColor="@color/purple_500"
                 android:id="@+id/fnames"
                 />
@@ -94,6 +97,8 @@
                 android:layout_height="wrap_content"
                 android:text="Loading ..."
                 android:paddingRight="20dp"
+                android:textStyle="normal"
+                android:textSize="16sp"
                 android:textColor="@color/purple_500"
                 android:id="@+id/txt_mail"
                 />
@@ -126,6 +131,8 @@
                 android:layout_height="wrap_content"
                 android:text="Loading ..."
                 android:paddingRight="20dp"
+                android:textStyle="normal"
+                android:textSize="16sp"
                 android:textColor="@color/purple_500"
                 android:id="@+id/txt_cell"
 
@@ -141,7 +148,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:background="#A60A13"
+            android:background="@color/sign_blue"
             />
 
         <LinearLayout
