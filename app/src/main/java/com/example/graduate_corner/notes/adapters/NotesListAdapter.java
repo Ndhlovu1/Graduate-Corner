@@ -18,6 +18,7 @@ import com.example.graduate_corner.notes.NotesClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
 
@@ -59,10 +60,35 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
             holder.image_view_pin.setImageResource(0);
         }
 
+        int color_code = getRandomColor();
+        holder.notes_container.setCardBackgroundColor(holder.itemView.getResources().getColor(color_code, null));
+        holder.notes_container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(list.get(holder.getAdapterPosition()));
+            }
+        });
+
+       holder.notes_container.setOnLongClickListener(new View.OnLongClickListener() {
+           @Override
+           public boolean onLongClick(View v) {
+               listener.onLongClick(list.get(holder.getAdapterPosition()), holder.notes_container );
+               return true;
+           }
+       });
+
     }
 
     private int getRandomColor(){
          List<Integer> colorCode = new ArrayList<>();
+         colorCode.add(R.color.color1);
+         colorCode.add(R.color.color2);
+         colorCode.add(R.color.color3);
+         colorCode.add(R.color.color4);
+
+        Random random = new Random();
+        int random_color = random.nextInt(colorCode.size());
+        return colorCode.get(random_color);
 
 
     }
