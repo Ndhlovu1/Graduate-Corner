@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".notes.NotesAddActivity">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/notes_toolbar"
+        android:title="GRADUATE CORNER"
+        android:titleTextColor="@color/sign_blue"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/save_image_view"
+            android:background="@android:color/transparent"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_save"
+            android:padding="10dp"
+            />
+
+        </RelativeLayout>
+        
+    </Toolbar>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_text_title"
+        android:hint="Title"
+        android:textColorHint="#686868"
+        android:textColor="@color/black_two"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:singleLine="true"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_text_notes"
+        android:hint="Enter Your Notes..."
+        android:textColorHint="#686868"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:textStyle="normal"
+        />
+
+</LinearLayout>

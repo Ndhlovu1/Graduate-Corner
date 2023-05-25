@@ -24,12 +24,11 @@
         android:layout_height="match_parent"
         >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="22dp"
-        android:id="@+id/recycler_home"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="22dp" />
         
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
