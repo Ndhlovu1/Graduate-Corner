@@ -134,30 +134,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="-50dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Help Line:\n\nhelp.nust.na"
-                android:textStyle="bold"
-                android:padding="12dp"
-                android:gravity="center"
-                android:paddingTop="1dp"
-                android:textColor="@color/purple_500"
-                android:layout_marginTop="100dp"
-                android:id="@+id/support_link"
-                />
-
-
-        </LinearLayout>
 
 
         <View
@@ -188,7 +164,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_whatshot"
-                android:id="@+id/whatsapp_link"
+                android:id="@+id/support_link"
                 />
 
         </LinearLayout>

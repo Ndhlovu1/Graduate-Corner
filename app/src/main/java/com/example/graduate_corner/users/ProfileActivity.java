@@ -33,8 +33,8 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference databaseReference;
 
-    TextView fnames, txt_mail, txt_cell, txt_website;
-    ImageView email_pic, whatsapp_pic;
+    TextView fnames, txt_mail, txt_cell;
+    ImageView email_pic, help_line;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawerlayoutprofile);
 
-        txt_website = findViewById(R.id.support_link);
         email_pic = findViewById(R.id.clickEmail);
-        whatsapp_pic = findViewById(R.id.whatsapp_link);
+        help_line = findViewById(R.id.support_link);
 
         auth = FirebaseAuth.getInstance();
 
@@ -55,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
         txt_cell = findViewById(R.id.txt_cell);
 
         //Web Page
-        txt_website.setOnClickListener(new View.OnClickListener() {
+        help_line.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri webpage = Uri.parse("https://www.nust.na/");
