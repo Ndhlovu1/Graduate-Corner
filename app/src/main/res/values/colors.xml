@@ -8,4 +8,12 @@
     <color name="white_two">#E6E7ED</color>
     <color name="purple_200">#5C25A0</color>
     <color name="purple_500">#7A6868</color>
+    <color name="red">#A60A13</color>
+
+    <color name="color1">#FF9800</color>
+    <color name="color2">#4CAF50</color>
+    <color name="color3">#673AB7</color>
+    <color name="color4">#00FF66</color>
+
+
 </resources>
