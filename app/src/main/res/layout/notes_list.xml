@@ -7,6 +7,7 @@
     android:id="@+id/notes_container"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp"
+    android:layout_margin="10dp"
     >
 
     <LinearLayout
@@ -28,11 +29,22 @@
                 android:textColor="@color/black"
                 android:layout_alignParentStart="true"
                 android:textSize="24sp"
-                android:padding="22dp"
+                android:padding="2dp"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#103152"
+                android:id="@+id/line_breaker"
+                android:layout_below="@+id/title_tv"
+
                 />
 
             <ImageView
@@ -40,6 +52,7 @@
                 android:layout_height="20dp"
                 android:id="@+id/image_view_pin"
                 android:layout_alignParentEnd="true"
+                android:layout_above="@id/line_breaker"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -56,7 +69,7 @@
             android:textStyle="normal"
             android:text="I am made for notes..."
             android:maxLines="5"
-            android:layout_margin="22dp"
+            android:layout_margin="10dp"
             />
 
         <TextView
@@ -66,7 +79,7 @@
             android:textColor="#878181"
             android:textStyle="normal"
             android:text="04 - 01 - 2023"
-            android:layout_margin="22dp"
+            android:layout_margin="10dp"
             android:id="@+id/text_view_date"
             />
 
