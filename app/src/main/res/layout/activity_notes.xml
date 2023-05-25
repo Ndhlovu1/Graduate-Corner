@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="10dp"
-    android:id="@+id/drawerlayout"
+    android:id="@+id/drawerlayoutNotes"
     android:background="@drawable/white_bg"
     tools:context=".notes.NotesActivity">
 
