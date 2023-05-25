@@ -53,14 +53,16 @@
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:padding="12dp"
+                android:textStyle="bold"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:text="Fullname"
+                android:text="NAME"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loading ..."
+                android:paddingRight="20dp"
                 android:textColor="@color/purple_500"
                 android:id="@+id/fnames"
                 />
@@ -80,9 +82,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Email Address"
+                android:text="EMAIL ADDRESS"
                 android:textColor="@color/black"
                 android:padding="12dp"
+                android:textStyle="bold"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp" />
 
@@ -90,6 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loading ..."
+                android:paddingRight="20dp"
                 android:textColor="@color/purple_500"
                 android:id="@+id/txt_mail"
                 />
@@ -109,8 +113,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cellphone"
+                android:text="INSTITUTION"
                 android:padding="12dp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginStart="16dp"
 
@@ -120,6 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loading ..."
+                android:paddingRight="20dp"
                 android:textColor="@color/purple_500"
                 android:id="@+id/txt_cell"
 

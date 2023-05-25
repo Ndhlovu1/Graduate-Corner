@@ -129,9 +129,9 @@ public class RegisterActivity extends AppCompatActivity {
                 hashMap.put("id", userId);
                 hashMap.put("Full_Name", str_full_name);
                 hashMap.put("Email",str_email);
+                hashMap.put("Password", str_password);
                 hashMap.put("Institution",str_institution);
                 hashMap.put("Cellphone",str_cellphone);
-                hashMap.put("Password", str_password);
 
                 //Use your Database Reference to now push the new user details into the database
                 ref.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
