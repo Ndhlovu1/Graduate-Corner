@@ -14,5 +14,6 @@ public class NotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
 
 
+
     }
 }
