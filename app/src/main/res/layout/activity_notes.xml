@@ -18,6 +18,35 @@
 
     <include
         layout="@layout/main_toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="22dp"
+        android:id="@+id/recycler_home"
+        />
+        
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/sign_blue"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_add"
+
+        />
+
+    </RelativeLayout>
+
+
+
     </LinearLayout>
 
     <RelativeLayout
