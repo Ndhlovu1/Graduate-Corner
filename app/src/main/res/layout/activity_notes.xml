@@ -24,10 +24,23 @@
         android:layout_height="match_parent"
         >
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="#9C9C9F"
+            app:iconifiedByDefault="false"
+            android:padding="22dp"
+            app:queryHint="Search for a note..."
+
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/search_view"
             android:padding="22dp" />
         
     <com.google.android.material.floatingactionbutton.FloatingActionButton
