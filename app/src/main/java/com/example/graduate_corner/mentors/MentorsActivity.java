@@ -1,16 +1,170 @@
 package com.example.graduate_corner.mentors;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 
+import com.example.graduate_corner.MainDashboardActivity;
 import com.example.graduate_corner.R;
+import com.example.graduate_corner.databinding.ActivityMentorsBinding;
+import com.example.graduate_corner.mentors.mentors.ListAdapter;
+import com.example.graduate_corner.mentors.mentors.User;
+import com.example.graduate_corner.mentors.mentors.UserActivity;
+import com.example.graduate_corner.notes.NotesActivity;
+import com.example.graduate_corner.users.LoginActivity;
+import com.example.graduate_corner.users.ProfileActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class MentorsActivity extends AppCompatActivity {
+
+    FirebaseAuth auth;
+    DrawerLayout drawerLayout;
+
+    //Reference Variable
+    ActivityMentorsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mentors);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        binding = ActivityMentorsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        drawerLayout = findViewById(R.id.drawerlayoutMentors);
+        auth = FirebaseAuth.getInstance();
+
+        //Saving Images to Users
+        int[] imageId = {
+                R.drawable.tino,
+                R.drawable.daphine,
+                R.drawable.malvern3,
+                R.drawable.simon,
+        };
+
+        String[] name = {
+                "Ndhlovu Tinomudaishe", "Daphine Gondo", "Malvern Bhunu", "Simon Muchinenyika"
+        };
+
+        String [] title = {
+                "Motivational Coach", "Career Coach", "Programming Coach", "Life Coach"
+        };
+
+        String[] city = {
+                "Windhoek","Gobabis","Swakopmund","Keetmans"
+        };
+
+        ArrayList<User> userArrayList = new ArrayList<User>();
+
+        for (int i = 0; i<imageId.length; i++){
+            User user = new User(name[i], title[i], city[i], imageId[i]);
+            userArrayList.add(user);
+        }
+
+        ListAdapter listAdapter = new ListAdapter(MentorsActivity.this, userArrayList);
+
+        binding.listview.setAdapter(listAdapter);
+        binding.listview.setClickable(true);
+        binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent i = new Intent(MentorsActivity.this, UserActivity.class);
+                i.putExtra("name", name[position]);
+                i.putExtra("title", title[position]);
+                i.putExtra("city", city[position]);
+                i.putExtra("imageid", imageId[position]);
+                startActivity(i);
+            }
+        });
+
+
+
+
     }
+
+    //Verify if the user hasnt clicked logout to kill this activity
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser firebaseUser = auth.getCurrentUser();
+        if (firebaseUser != null){
+            //String userName = firebaseUser.getEmail();
+            //Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show();
+        }else {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+
+    }
+
+
+    //Drawer Code Starts Here
+    public void clickMenu(View view){
+        //open Drawer
+        openDrawer(drawerLayout);
+    }
+
+    private static void  openDrawer(DrawerLayout drawerLayout) {
+
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }//End of Drawer Code
+
+    public void clickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
+
+    public void clickDashboard(View view){
+        //Recreate Activity
+        // recreate();
+        redirectActivity(this, MainDashboardActivity.class);
+    }
+
+    public void clickProfile(View view){
+        redirectActivity(this, ProfileActivity.class);
+    }
+
+    public void logout(View view){
+        //Log the user out of their Account
+        //Get Out of the App
+        // System.exit(0);
+        auth.signOut();
+        finish();
+    }
+
+    //Taking the User to the Start Activity
+    private static void redirectActivity(Activity activity, Class aClass) {
+
+        //initialize intent
+        Intent intent = new Intent(activity,aClass);
+        //setFlag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //Start Activity
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        closeDrawer(drawerLayout);
+        super.onPause();
+    }
+
+
 }

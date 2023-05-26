@@ -1,7 +1,11 @@
 package com.example.graduate_corner.notes;
 
+import static com.example.graduate_corner.R.id.stick;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -9,16 +13,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.example.graduate_corner.MainDashboardActivity;
 import com.example.graduate_corner.R;
 import com.example.graduate_corner.notes.Models.Notes;
+import com.example.graduate_corner.notes.Models.NotesDAO;
 import com.example.graduate_corner.notes.Models.RoomDb;
 import com.example.graduate_corner.notes.adapters.NotesListAdapter;
 import com.example.graduate_corner.users.LoginActivity;
@@ -30,7 +39,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotesActivity extends AppCompatActivity {
+public class NotesActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
     //Create the specific variables for Firebase
     FirebaseAuth auth;
@@ -42,21 +51,35 @@ public class NotesActivity extends AppCompatActivity {
     RoomDb database;
     FloatingActionButton fab_add;
 
+    SearchView searchView_Notes;
+
+    Notes selectedNote;
+
+    MenuItem pin, delete;
+
+    ImageView delete_note;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_notes);
 
         drawerLayout = findViewById(R.id.drawerlayoutNotes);
         auth = FirebaseAuth.getInstance();
+
+        searchView_Notes = findViewById(R.id.search_view);
 
         recyclerView = findViewById(R.id.recycler_home);
         fab_add = findViewById(R.id.fab_add);
 
         database = RoomDb.getInstance(this);
         notes = database.notesDAO().getAll();
+
+        pin = findViewById(R.id.stick);
+        delete = findViewById(R.id.delete);
+
 
         updateRecycler(notes);
 
@@ -68,6 +91,35 @@ public class NotesActivity extends AppCompatActivity {
                 startActivityForResult(intent, 101);
             }
         });
+
+        //For the Search view
+        searchView_Notes.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+
+                return true;
+            }
+        });
+
+    }
+
+    private void filter(String newText) {
+        List<Notes> filteredList = new ArrayList<>();
+        for (Notes singleNote : notes){
+            if (singleNote.getTitle().toLowerCase().contains(newText.toLowerCase()) || singleNote.getNotes().toLowerCase().contains(newText.toLowerCase()) ){
+                filteredList.add(singleNote);
+            }
+        }
+
+        notesListAdapter.filteredList(filteredList);
+
 
     }
 
@@ -87,7 +139,6 @@ public class NotesActivity extends AppCompatActivity {
                 notes.addAll(database.notesDAO().getAll());
                 //Update adapter on added Notes
                 notesListAdapter.notifyDataSetChanged();
-
 
             }
         } else if (requestCode==102) {
@@ -124,9 +175,22 @@ public class NotesActivity extends AppCompatActivity {
 
         @Override
         public void onLongClick(Notes notes, CardView cardView) {
+            selectedNote = new Notes();
+            selectedNote = notes;
+            showPopUp(cardView);
+
 
         }
     };
+
+    public void showPopUp(CardView cardView) {
+        //Create the Delete and the Pin Menu Items
+        PopupMenu popupMenu = new PopupMenu(this, cardView);
+        popupMenu.setOnMenuItemClickListener((PopupMenu.OnMenuItemClickListener) this);
+        popupMenu.inflate(R.menu.popup_menu);
+        popupMenu.show();
+
+    }
 
 
     //Verify if the user hasnt clicked logout to kill this activity
@@ -202,6 +266,11 @@ public class NotesActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
 
 
+
+        return false;
+    }
 }
