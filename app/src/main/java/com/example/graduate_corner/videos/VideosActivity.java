@@ -6,9 +6,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import com.example.graduate_corner.MainDashboardActivity;
 import com.example.graduate_corner.R;
@@ -30,6 +33,20 @@ public class VideosActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.skillsDrawer);
         auth = FirebaseAuth.getInstance();
+
+        VideoView videoView = findViewById(R.id.video_view);
+        String videoPath = "android.resource://"+getPackageName() + "/"+R.raw.personal_growth;
+
+        //Using the video
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+
+        //Media Controllers
+        MediaController mediaController = new MediaController(this);
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
+
 
     }
 
