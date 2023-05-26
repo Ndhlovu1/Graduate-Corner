@@ -18,7 +18,7 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = ActivityUserBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_user);
+        setContentView(binding.getRoot());
 
         Intent intent = this.getIntent();
 

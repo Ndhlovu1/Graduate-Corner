@@ -29,6 +29,8 @@ public class MainDashboardActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     GridLayout mainGrid;
 
+    int counter = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,7 +147,14 @@ public class MainDashboardActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    public void onBackPressed() {
+        counter++;
+        if (counter == 2){
+            super.onBackPressed();
+        }
 
+    }
 
 
 }
