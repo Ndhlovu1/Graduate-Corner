@@ -15,7 +15,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Landing extends AppCompatActivity {
 
+    //Declare the buttons in the xml file
     Button lgn_btn, register;
+    //Create a firebase user instance
     FirebaseUser firebaseUser;
 
     @Override
